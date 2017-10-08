@@ -6,20 +6,42 @@ import axios from 'axios'
 import url from 'js/api.js'
 // import log from 'js/utils.js'
 
+import { InfiniteScroll } from 'mint-ui'
+Vue.use(InfiniteScroll)
+
+// utils
 const log = console.log.bind(console)
 
 new Vue({
     el: '#app',
     data: {
         lists: null,
+        pageNum: 1,
+        pageSize: 12,
+        loading: false,
+        allLoaded: false,
     },
     mounted() {
-        // fetchHotLists()
-        axios.post(url.hotSales, {
-            pageNum: 1,
-            pageSize: 50,
-        }).then(res=>{
-            this.lists = res.data.lists
-        })
+        this.requestHotSales()
     },
+    methods: {
+        requestHotSales(){
+            if (this.allLoaded){
+                return
+            }
+            this.loading = true
+            axios.post(url.hotSales, {
+                pageNum: this.pageNum,
+                pageSize: this.pageSize,
+            }).then(res=>{
+                let hotSales = res.data.lists
+                if (hotSales.length < this.pageSize){
+                    this.allLoaded = true
+                }
+                this.lists = this.lists? this.lists.concat(hotSales) : hotSales
+                this.loading = false
+                this.pageNum += 1
+            })
+        }
+    }
 })

@@ -72,7 +72,11 @@
                   </div>
               </div>
               <div class="hot-goods js-waterfull-wrap" data-src="">
-                  <ul class="js-list js-lazy" data-src="">
+                  <ul class="js-list js-lazy" data-src=""
+                      v-infinite-scroll="requestHotSales"
+                      infinite-scroll-disabled="loading"
+                      infinite-scroll-distance="44">
+
                       <li v-for="e in lists" :key="e.id">
                           <div class="goods-item">
                               <a v-bind:href="e.link">
@@ -86,9 +90,8 @@
                               </a>
                           </div>
                       </li>
-
                   </ul>
-                  <div class="loading-more"><span></span></div>
+                  <div class="loading-more" v-show="loading"><span></span></div>
               </div>
               <div class="js-show-find category-guid" style="display: none;"></div>
           </div>
