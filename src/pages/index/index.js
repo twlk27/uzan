@@ -6,8 +6,12 @@ import axios from 'axios'
 import url from 'js/api.js'
 // import log from 'js/utils.js'
 
+// ui
 import { InfiniteScroll } from 'mint-ui'
 Vue.use(InfiniteScroll)
+
+// component
+import Foot from 'components/Foot.vue'
 
 // utils
 const log = console.log.bind(console)
@@ -43,5 +47,8 @@ new Vue({
                 this.pageNum += 1
             })
         }
+    },
+    components: {
+        Foot,
     }
 })
