@@ -18,19 +18,38 @@ const log = console.log.bind(console)
 new Vue({
     el: '#app',
     data: {
+        activeId: -1,
         categorys1: null,
-
+        categorys2: null,
+        rank: null,
     },
     created() {
-        this.requestCategorys()
+        this.requestCategorys1()
+        this.requestRank()
     },
     methods: {
-        requestCategorys(){
-            axios.get(url.banners)
+        requestCategorys1(){
+            axios.get(url.categorys1)
             .then(res => {
                 this.categorys1 = res.data.lists
             })
-        }
+        },
+        requestCategorys2(id){
+            if (this.activeId == +id){
+                return
+            }
+            this.activeId = +id
+            axios.get(url.categorys2, {id})
+            .then(res => {
+                this.categorys2 = res.data.data
+            })
+        },
+        requestRank(){
+            axios.get(url.rank)
+            .then(res => {
+                this.rank = res.data.data
+            })
+        },
     },
     components: {
         Foot,

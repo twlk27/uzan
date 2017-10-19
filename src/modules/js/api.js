@@ -8,6 +8,9 @@ const host = {
 let url = {
     hotSales: '/api/4',
     banners: '/api/5',
+    categorys1: '/api/6',
+    categorys2: '/api/7',
+    rank: '/api/8',
 }
 
 for (var u in url) {
