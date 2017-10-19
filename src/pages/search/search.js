@@ -9,6 +9,7 @@ import url from 'js/api.js'
 // ui
 // import { InfiniteScroll } from 'mint-ui'
 // Vue.use(InfiniteScroll)
+import Velocity from 'velocity-animate'
 
 // component
 // import Foot from 'components/Foot.vue'
@@ -23,6 +24,7 @@ new Vue({
     el: '.container',
     data: {
         goods: null,
+        showTop: false,
         // banners: null,
         // pageNum: 1,
         // pageSize: 6,
@@ -49,6 +51,14 @@ new Vue({
                 // this.loading = false
                 // this.pageNum += 1
             })
+        },
+        move() {
+            if (document.scrollingElement.scrollTop > 100){
+                this.showTop = true
+            }
+        },
+        toTop(){
+            Velocity(document.body, 'scroll', {duration: 500})
         }
     },
     components: {
