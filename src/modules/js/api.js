@@ -11,6 +11,7 @@ let url = {
     categorys1: '/api/6',
     categorys2: '/api/7',
     rank: '/api/8',
+    goods: '/api/9',
 }
 
 for (var u in url) {

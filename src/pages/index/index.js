@@ -4,14 +4,13 @@ import './index.css'
 import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
-// import log from 'js/utils.js'
+import mixin from 'js/mixin.js'
 
 // ui
 import { InfiniteScroll } from 'mint-ui'
 Vue.use(InfiniteScroll)
 
 // component
-import Foot from 'components/Foot.vue'
 import Swipe from 'components/Swipe.vue'
 
 // utils
@@ -58,7 +57,7 @@ new Vue({
         }
     },
     components: {
-        Foot,
         Swipe,
-    }
+    },
+    mixins: [mixin],
 })

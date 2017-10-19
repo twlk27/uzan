@@ -52,16 +52,27 @@
         "goods|3":[{
             "id": "@id",
             "image": "@image(90x90, @color)",
-            "name": "",
+            "name": "【周黑鸭_锁鲜】气调盒装卤鸭锁骨240g",
             "price": "@order(89, 29, 46, 80)",
             "recommend": "@order(8844, 5765, 2770)"
         }],
         "keywords|6-9":["@order('化妆水', '连衣裙', '凉鞋女', '面膜', '防晒', '蓝牙音箱', '小白鞋', '裤子', '衬衫')"],
         "shops|3":[{
             "clickURL": "/",
-            "follows": "@order(7890,89,890)",
-            "images": "@image(180x180, @color)",
+            "follows": "@order(7890,5389,3890)",
+            "images|3": ["@image(180x180, @color)"],
             "name": "@order('幸福西饼', 'HomeFacial Pro', '物业365')"
         }]
     }
+}
+
+// 商品搜索列表
+{
+    "list|8": [{
+        "id": "@increment",
+        "image": "@img(320x320, @color)",
+        "isOut": "@pick(true, false, false, false)",
+        "name": "商品名称",
+        "price": "@int(10, 120)"
+    }]
 }
