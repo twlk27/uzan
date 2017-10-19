@@ -7,6 +7,7 @@ const host = {
 
 let url = {
     hotSales: '/api/4',
+    banners: '/api/5',
 }
 
 for (var u in url) {

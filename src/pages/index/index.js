@@ -12,6 +12,7 @@ Vue.use(InfiniteScroll)
 
 // component
 import Foot from 'components/Foot.vue'
+import Swipe from 'components/Swipe.vue'
 
 // utils
 const log = console.log.bind(console)
@@ -20,13 +21,15 @@ new Vue({
     el: '#app',
     data: {
         lists: null,
+        banners: null,
         pageNum: 1,
         pageSize: 6,
         loading: false,
         allLoaded: false,
     },
-    mounted() {
+    created() {
         this.requestHotSales()
+        this.requestBanners()
     },
     methods: {
         requestHotSales(){
@@ -46,9 +49,16 @@ new Vue({
                 this.loading = false
                 this.pageNum += 1
             })
+        },
+        requestBanners(){
+            axios.get(url.banners)
+            .then(res => {
+                this.banners = res.data.lists
+            })
         }
     },
     components: {
         Foot,
+        Swipe,
     }
 })
