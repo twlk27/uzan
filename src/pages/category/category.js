@@ -53,5 +53,10 @@ new Vue({
     },
     components: {
         Foot,
+    },
+    filters: {
+        priceFormat(num){
+            return `￥${num}.00`
+        }
     }
 })
