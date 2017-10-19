@@ -1243,3 +1243,6 @@ body, html {
     transform: rotate(1turn)
   }
 }
+
+/* over write */
+.main-content{overflow-y: scroll;}
