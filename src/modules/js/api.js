@@ -1,12 +1,12 @@
 const mode = 'dev' // ['dev', 'prd']
 
 const host = {
-    'dev': 'http://zcat.cc:8001',
-    'prd': 'http://zcat.cc:8001',
+    'dev': 'http://dev.zcat.cc:8001',
+    'prd': 'http://dev.zcat.cc:8001',
 }
 
 let url = {
-    hotSales: '/api/21',
+    hotSales: '/api/4',
 }
 
 for (var u in url) {
