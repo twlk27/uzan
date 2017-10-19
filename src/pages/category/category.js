@@ -50,6 +50,9 @@ new Vue({
                 this.rank = res.data.data
             })
         },
+        redirectToSearch(item){
+            location.href = `search.html?keyword=${item.name}`
+        }
     },
     components: {
         Foot,

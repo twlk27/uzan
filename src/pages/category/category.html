@@ -126,9 +126,10 @@
                   <h3 class="category-title">热门品牌 </h3>
                   <ul class="category-content">
                     <li class="category-item js-category-item"
-                        v-for="b in categorys2.brands" :key="b.id"
+                        @click="redirectToSearch(b)"
                         :data-item-id="b.id"
-                        :data-item-name="b.name">
+                        :data-item-name="b.name"
+                        v-for="b in categorys2.brands" :key="b.id">
                       <img :src="b.image" :alt="b.name" class="category-img">
                       <span class="category-item-name">{{b.name}}</span>
                     </li>
@@ -136,9 +137,10 @@
                   <h3 class="category-title"> 热门分类  </h3>
                   <ul class="category-content">
                     <li class="category-item js-category-item"
-                        v-for="ct in categorys2.categorys" :key="ct.id"
+                        @click="redirectToSearch(ct)"
                         :data-item-id="ct.id"
-                        :data-item-name="ct.name">
+                        :data-item-name="ct.name"
+                        v-for="ct in categorys2.categorys" :key="ct.id">
                       <img :src="ct.image" :alt="ct.name" class="category-img">
                       <span class="category-item-name">{{ct.name}}</span>
                     </li>
@@ -149,7 +151,7 @@
           </div>
         </div>
 
-        <!-- <Foot></Foot> -->
+        <Foot></Foot>
     </div>
 </body>
 
