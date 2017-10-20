@@ -71,9 +71,9 @@
 
                       <li v-for="e in lists" :key="e.id">
                           <div class="goods-item">
-                              <a v-bind:href="e.link">
+                              <a :href="'goods.html?id='+e.id">
                                   <div class="thumb img-box">
-                                      <img class="fadeIn" v-bind:src="e.cover">
+                                      <img class="fadeIn" :src="e.cover">
                                   </div>
                                   <div class="detail">
                                       <div class="title">{{e.title}}</div>
