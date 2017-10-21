@@ -5,9 +5,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
 import mixin from 'js/mixin.js'
-
-// utils
-const log = console.log.bind(console)
+import utils, {log} from 'js/utils.js'
 
 new Vue({
     el: '#app',

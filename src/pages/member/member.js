@@ -4,7 +4,7 @@ import './member.css'
 import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
-// import log from 'js/utils.js'
+import utils, {log} from 'js/utils.js'
 
 // ui
 // import { InfiniteScroll } from 'mint-ui'
@@ -12,10 +12,8 @@ import url from 'js/api.js'
 
 // component
 import Foot from 'components/Foot.vue'
-// import Swipe from 'components/Swipe.vue'
 
-// utils
-const log = console.log.bind(console)
+
 
 // new Vue({
 //     el: '#app',

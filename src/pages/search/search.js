@@ -5,6 +5,8 @@ import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
 import url from 'js/api.js'
+import mixin from 'js/mixin.js'
+import utils, {log} from 'js/utils.js'
 
 // ui
 // import { InfiniteScroll } from 'mint-ui'
@@ -13,10 +15,7 @@ import Velocity from 'velocity-animate'
 
 // component
 // import Foot from 'components/Foot.vue'
-import mixin from 'js/mixin.js'
 
-// utils
-const log = console.log.bind(console)
 
 let {keywork, id} = qs.parse(location.search.substr(1))
 

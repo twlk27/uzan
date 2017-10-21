@@ -5,16 +5,12 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
 import mixin from 'js/mixin.js'
+import utils, {log} from 'js/utils.js'
 
 // ui
+import Swipe from 'components/Swipe.vue'
 import { InfiniteScroll } from 'mint-ui'
 Vue.use(InfiniteScroll)
-
-// component
-import Swipe from 'components/Swipe.vue'
-
-// utils
-const log = console.log.bind(console)
 
 new Vue({
     el: '#app',

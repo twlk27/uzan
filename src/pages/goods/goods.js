@@ -11,7 +11,7 @@ import axios from 'axios'
 import url from 'js/api.js'
 import mixin from 'js/mixin.js'
 
-const log = console.log.bind(console)
+import utils, {log} from 'js/utils.js'
 
 let {id} = qs.parse(location.search.substr(1))
 
