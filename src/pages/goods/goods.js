@@ -28,10 +28,16 @@ new Vue({
     },
     methods: {
         requestGoodsDtls(){
-            axios.post(url.goodsDtls, {id})
-            .then(res=>{
-                this.details = res.data.data
-            })
+            utils.guaAsync(()=>{
+                axios.post(url.goodsDtls, {id})
+                .then(res=>{
+                    this.details = res.data.data
+                })
+            }, 1000)
+            // axios.post(url.goodsDtls, {id})
+            // .then(res=>{
+            //     this.details = res.data.data
+            // })
         },
         requestDeals(){
             axios.post(url.goodsSales, {id})
