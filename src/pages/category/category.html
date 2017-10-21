@@ -72,7 +72,7 @@
                       </div>
                       <ul>
                         <li class="goods-item" v-for="(g, i) in rank.goods" :key="g.id">
-                          <a href="https://h5.youzan.com/v2/showcase/goods?alias=27cjv5wdsb4to&amp;source=yzapp&amp;f_platform=yzapp">
+                          <a :href="'goods.html?id='+g.id">
                             <div class="thumb badge center-img">
                               <img :src="g.image">
                               <span class="num">{{i+1}}</span>
