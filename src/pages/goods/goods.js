@@ -19,6 +19,7 @@ let {id} = qs.parse(location.search.substr(1))
 new Vue({
     el: '#app',
     data:{
+        id,
         details: null,
         sales: null,
         banners: null,
@@ -26,6 +27,9 @@ new Vue({
         tabIndex: 0,
         showSku: false,
         skuType: 1,
+        skuNum: 0,
+        doneCart: false,
+        doneCartMessage: false,
     },
     created(){
         this.requestGoodsDtls()
@@ -61,6 +65,27 @@ new Vue({
         },
         hideSku(){
             this.showSku = false
+        },
+        changeSkuNum(num){
+            if (num < 0 && this.skuNum == 1){
+                return
+            }
+            this.skuNum += num
+        },
+        addCart(){
+            axios.post(url.addCart, {
+                id,
+                number: this.skuNum
+            })
+            .then(res=>{
+                this.showSku = false
+                this.doneCart = true
+                this.doneCartMessage = true
+
+                setTimeout(()=>{
+                    this.doneCartMessage = false
+                }, 1000)
+            })
         }
     },
     components: {

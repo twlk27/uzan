@@ -14,6 +14,7 @@ let url = {
     goods: '/api/9',
     goodsDtls: '/api/10',
     goodsSales: '/api/11',
+    addCart: '/api/13',
 }
 
 for (var u in url) {
