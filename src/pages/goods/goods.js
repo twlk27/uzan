@@ -4,6 +4,7 @@ import './goods.css'
 import './goods_theme.css'
 import './goods_mars.css'
 import './goods_sku.css'
+import './goods_transition.css'
 
 import Vue from 'vue'
 import qs from 'qs'
@@ -20,9 +21,11 @@ new Vue({
     data:{
         details: null,
         sales: null,
+        banners: null,
         detailTab:["商品详情", "本店成交"],
         tabIndex: 0,
-        banners: null,
+        showSku: false,
+        skuType: 1,
     },
     created(){
         this.requestGoodsDtls()
@@ -51,10 +54,27 @@ new Vue({
             if (i==1){
                 this.requestDeals()
             }
+        },
+        chooseSku(skuType){
+            this.skuType = skuType
+            this.showSku = true
+        },
+        hideSku(){
+            this.showSku = false
         }
     },
     components: {
         Swipe,
+    },
+    watch: {
+        showSku(val, oldVal){
+            let $body = document.body
+            let $html = document.querySelector('html')
+            $body.style.overflow = val? 'hidden':'auto'
+            $body.style.height = val? '100%':'auto'
+            $html.style.overflow = val? 'hidden':'auto'
+            $html.style.height = val? '100%':'auto'
+        }
     },
     filters: {
         timeFormat(ts){
