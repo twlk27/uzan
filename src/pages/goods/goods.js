@@ -11,12 +11,17 @@ import axios from 'axios'
 import url from 'js/api.js'
 import mixin from 'js/mixin.js'
 
+const log = console.log.bind(console)
+
 let {id} = qs.parse(location.search.substr(1))
 
 new Vue({
     el: '#app',
     data:{
-        details: null
+        details: null,
+        sales: null,
+        detailTab:["商品详情", "本店成交"],
+        tabIndex: 0,
     },
     created(){
         this.requestGoodsDtls()
@@ -27,6 +32,23 @@ new Vue({
             .then(res=>{
                 this.details = res.data.data
             })
+        },
+        requestDeals(){
+            axios.post(url.goodsSales, {id})
+            .then(res=>{
+                this.sales = res.data.list
+            })
+        },
+        switchTab(i){
+            this.tabIndex = i
+            if (i==1){
+                this.requestDeals()
+            }
+        }
+    },
+    filters: {
+        timeFormat(ts){
+            return ts.substr(0, 16)
         }
     },
     mixins: [mixin],

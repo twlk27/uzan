@@ -123,13 +123,12 @@
             <div class="js-detail-container" style="margin-top: 10px;">
               <div class="js-tabber-container goods-detail">
                 <div class="js-tabber tabber tabber-n2 clearfix orange">
-                  <button data-type="goods" class="active">
-                    商品详情 </button>
-                  <button data-type="sales">
-                    本店成交 </button>
+                  <button :class="{active: i == tabIndex}"
+                      @click="switchTab(i)"
+                      v-for="(t, i) in detailTab"> {{t}} </button>
                 </div>
                 <div class="js-tabber-content">
-                  <div class="js-part hide" data-type="sales">
+                  <div v-show="tabIndex==1" class="js-part" data-type="sales">
                     <div class="js-traderecord-list block-list-traderecord">
                       <div class="list-header">
                         <span class="col-1">买家</span>
@@ -137,10 +136,15 @@
                         <span class="col-3 center">数量</span>
                       </div>
                       <div class="js-list b-list block block-list">
+                          <div class="block-item" v-for="s in sales">
+                              <span class="col-1 c-gray-darker">{{s.buyer}}</span>
+                              <span class="col-2 c-gray-dark center">{{s.time | timeFormat}}</span>
+                              <span class="col-3 c-gray-darker center">{{s.num}}</span>
+                          </div>
                       </div>
                     </div>
                   </div>
-                  <div class="js-part js-goods-detail goods-tabber-c" data-type="goods" v-html="details.description">
+                  <div v-show="tabIndex==0" class="js-part js-goods-detail goods-tabber-c" data-type="goods" v-html="details.description">
                   </div>
                 </div>
               </div>
