@@ -10,8 +10,8 @@ import qs from 'qs'
 import axios from 'axios'
 import url from 'js/api.js'
 import mixin from 'js/mixin.js'
-
 import utils, {log} from 'js/utils.js'
+import Swipe from 'components/Swipe.vue'
 
 let {id} = qs.parse(location.search.substr(1))
 
@@ -22,22 +22,23 @@ new Vue({
         sales: null,
         detailTab:["商品详情", "本店成交"],
         tabIndex: 0,
+        banners: null,
     },
     created(){
         this.requestGoodsDtls()
     },
     methods: {
         requestGoodsDtls(){
-            utils.guaAsync(()=>{
-                axios.post(url.goodsDtls, {id})
-                .then(res=>{
-                    this.details = res.data.data
+            axios.post(url.goodsDtls, {id})
+            .then(res=>{
+                this.details = res.data.data
+                this.banners = res.data.data.images.map((e)=>{
+                    return {
+                        clickURL: '',
+                        image: e,
+                    }
                 })
-            }, 1000)
-            // axios.post(url.goodsDtls, {id})
-            // .then(res=>{
-            //     this.details = res.data.data
-            // })
+            })
         },
         requestDeals(){
             axios.post(url.goodsSales, {id})
@@ -51,6 +52,9 @@ new Vue({
                 this.requestDeals()
             }
         }
+    },
+    components: {
+        Swipe,
     },
     filters: {
         timeFormat(ts){
