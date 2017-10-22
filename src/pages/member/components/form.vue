@@ -5,7 +5,7 @@
           <input class="js-id" name="id" type="hidden" value="">
           <div class="block-item" style="border-top:0;">
             <label>收货人</label>
-            <input type="text" placeholder="请输入姓名" name="user_name" v-model="name" maxlength="20">
+            <input type="text" placeholder="请输入姓名" name="user_name" v-model.trim="name" maxlength="20">
           </div>
           <div class="block-item">
             <label>联系电话</label>
@@ -35,12 +35,12 @@
         </div>
       </div>
       <div class="block section js-save block-control-btn">
-        <div class="block-item c-blue center">保存</div>
+        <div class="block-item c-blue center" @click="add()">保存</div>
       </div>
-      <div class="block section js-delete block-control-btn" v-show="type=='edit'">
+      <div class="block section js-delete block-control-btn" v-show="type=='edit'" @click="remove()">
         <div class="block-item c-red center">删除</div>
       </div>
-      <div class="block stick-bottom-row center js-save-default" v-show="type=='edit'">
+      <div class="block stick-bottom-row center js-save-default" v-show="type=='edit'" @click="setDefault()">
         <button class="btn btn-standard js-save-default-btn">设为默认收货地址</button>
       </div>
     </div>

@@ -105,19 +105,25 @@
 	}]
 }
 
+// 加入购物车 | 表示所有 不需要返回值的操作
+// http://dev.zcat.cc:8001/api/13
+{
+	"status": 200
+}
+
 // 地址 - 列表
 {
 	"list|3": [{
 		"address": "软件园",
 		"cityName": "广州市",
-		"cityValue": "440100",
+		"cityValue": 440100,
 		"districtName": "天河区",
-		"districtValue": "440100",
+		"districtValue": 440106,
 		"id": 52110,
 		"isDefault": "@order(false, true, false)",
 		"name": "tony",
 		"provinceName": "广东省",
-		"provinceValue": "440000",
-		"tel": 13111111111
+		"provinceValue": 440000,
+		"tel": 13812891665
 	}]
 }

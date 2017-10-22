@@ -16,10 +16,10 @@ let url = {
     goodsSales: '/api/11',
     addCart: '/api/13',
     addresses: '/api/15',
-    addressAdd: '/api/',
-    addressRemove: '/api/',
-    addressUpdate: '/api/',
-    addressSetDefault: '/api/',
+    addressAdd: '/api/13',
+    addressRemove: '/api/13',
+    addressUpdate: '/api/13',
+    addressSetDefault: '/api/13',
 
 }
 
