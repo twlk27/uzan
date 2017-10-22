@@ -19,6 +19,11 @@ export default {
             editInited: false,
         }
     },
+    computed: {
+        addresses() {
+            return this.$store.state.list
+        }
+    },
     created(){
         let q = this.$route.query
         this.type = q.type
@@ -44,9 +49,7 @@ export default {
             let {name, tel, provinceValue, cityValue, districtValue, address} = this
             let data = {name, tel, provinceValue, cityValue, districtValue, address}
             if (this.type == 'add'){
-                Address.add(data).then(res=>{
-                    this.$router.go(-1)
-                })
+                this.$store.dispatch('requestAddressAdd', data)
             }
             if (this.type == 'edit'){
                 data.id = this.id
@@ -69,6 +72,9 @@ export default {
         },
     },
     watch: {
+        addresses(val, oldVal){
+            this.$router.go(-1)
+        },
         provinceValue(val, oldVal){
             if (val == -1) {
                 return

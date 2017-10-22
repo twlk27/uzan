@@ -33,7 +33,9 @@ export default {
         }
     },
     created(){
-        this.$store.dispatch('requestAddresses')
+        if (!this.addresses){
+            this.$store.dispatch('requestAddresses')
+        }
     },
     methods: {
         toEdit(e){

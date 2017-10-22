@@ -12,14 +12,22 @@ const store = new Vuex.Store({
     mutations: {
         init(state, list){
             state.list = list
-        }
+        },
+        add(state, instance){
+            state.list.push(instance)
+        },
     },
     actions: {
         requestAddresses(context) {
             Address.list().then(res => {
                 context.commit('init', res.data.list)
             })
-        }
+        },
+        requestAddressAdd(context, instance){
+            Address.add(instance).then(res => {
+                context.commit('add', instance)
+            })
+        },
     }
 
 })
