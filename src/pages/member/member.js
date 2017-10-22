@@ -6,15 +6,28 @@ import utils, {log} from 'js/utils.js'
 Vue.use(Router)
 
 // route.vue
-import MemberX from './components/member.vue'
-import Address from './components/address.vue'
+import rMember from './components/member.vue'
+import rAddress from './components/address.vue'
+import rAll from './components/all.vue'
+import rForm from './components/form.vue'
 
 let routes = [{
     path: '/',
-    component: MemberX
+    component: rMember
 },{
     path: '/address',
-    component: Address
+    component: rAddress,
+    children: [{
+        path: '',
+        // component: rAll, // -> /address
+        redirect: 'all', // -> /address/all
+    },{
+        path: 'all',
+        component: rAll,
+    },{
+        path: 'form',
+        component: rForm,
+    }]
 }]
 
 // 创建router实例

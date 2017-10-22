@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-      地址管理
+      <router-view></router-view>
   </div>
 </template>
 
