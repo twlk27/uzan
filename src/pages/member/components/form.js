@@ -16,6 +16,7 @@ export default {
             provinces: addressData.list,
             citys: null,
             districts: null,
+            editInited: false,
         }
     },
     created(){
@@ -32,7 +33,11 @@ export default {
             this.provinceValue = e.provinceValue
             this.cityValue = e.cityValue
             this.districtValue = e.districtValue
+            this.editInited = true
         }
+    },
+    beforeUpdate(){
+        this.editInited = false
     },
     methods: {
         add(){
@@ -74,9 +79,8 @@ export default {
             this.citys = this.provinces[i].children
             this.cityValue = -1
             this.districtValue = -1
-            if (this.type == 'edit'){
-                this.cityValue = oldVal
-                // this.cityValue = this.instance.cityValue
+            if (this.type == 'edit' && this.editInited){
+                this.cityValue = this.instance.cityValue
             }
         },
         cityValue(val, oldVal){
@@ -89,9 +93,8 @@ export default {
             })
             this.districts = this.citys[i].children
             this.districtValue = -1
-            if (this.type == 'edit'){
-                this.districtValue = oldVal
-                // this.districtValue = this.instance.districtValue
+            if (this.type == 'edit' && this.editInited){
+                this.districtValue = this.instance.districtValue
             }
         }
     }
