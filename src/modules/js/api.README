@@ -104,3 +104,20 @@
 		"time": "@datetime"
 	}]
 }
+
+// 地址 - 列表
+{
+	"list|3": [{
+		"address": "软件园",
+		"cityName": "广州市",
+		"cityValue": "440100",
+		"districtName": "天河区",
+		"districtValue": "440100",
+		"id": 52110,
+		"isDefault": "@order(false, true, false)",
+		"name": "tony",
+		"provinceName": "广东省",
+		"provinceValue": "440000",
+		"tel": 13111111111
+	}]
+}
