@@ -53,27 +53,24 @@ export default {
             }
             if (this.type == 'edit'){
                 data.id = this.id
-                Address.update(data).then(res=>{
-                    this.$router.go(-1)
-                })
+                this.$store.dispatch('requestAddressUpdate', data)
             }
         },
         remove(){
             if(window.confirm("确认删除吗?")){
-                Address.remove(this.id).then(res => {
-                    this.$router.go(-1)
-                })
+                this.$store.dispatch('requestAddressRemove', this.id)
             }
         },
         setDefault(){
-            Address.setDefault(this.id).then(res => {
-                this.$router.go(-1)
-            })
+            this.$store.dispatch('requestAddressSetDefault', this.id)
         },
     },
     watch: {
-        addresses(val, oldVal){
-            this.$router.go(-1)
+        addresses: {
+            handler() {
+                this.$router.go(-1)
+            },
+            deep: true
         },
         provinceValue(val, oldVal){
             if (val == -1) {
