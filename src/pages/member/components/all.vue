@@ -17,7 +17,7 @@
       </div>
 
       <div class="block stick-bottom-row center">
-        <router-link to="/address/form" class="btn btn-blue js-no-webview-block js-add-address-btn">
+        <router-link :to="{name: 'aliasForm'}" class="btn btn-blue js-no-webview-block js-add-address-btn">
             新增地址
         </router-link>
       </div>

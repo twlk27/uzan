@@ -23,9 +23,11 @@ let routes = [{
         redirect: 'all', // -> /address/all
     },{
         path: 'all',
+        name: 'aliasAll',
         component: rAll,
     },{
         path: 'form',
+        name: 'aliasForm',
         component: rForm,
     }]
 }]
